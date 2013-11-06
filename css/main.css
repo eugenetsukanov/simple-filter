@@ -1,0 +1,57 @@
+header nav {
+    margin-top: 10px;
+}
+
+.container {
+    padding-top: 1em;
+}
+
+.container-fluid .span9 {
+    height: 420px;
+}
+
+#map_canvas {
+    width: 100%;
+    height: 100%;
+}
+
+select {
+    width: 100% !important;
+}
+
+/* styles for mobile devices */
+@media only screen and (max-width: 480px), only screen and (max-device-width: 480px) {
+
+    header nav.span8 {
+        float: none;
+    }
+
+    .container-fluid .span3,
+    .container-fluid .span9,
+    header nav.span8,
+    header h1 {
+        float: none !important;
+    }
+
+    .container-fluid .span9 {
+        margin: 0 !important;
+    }
+
+    .container-fluid .span3,
+    .container-fluid .span9,
+    header nav .btn,
+    header nav.span8,
+    header h1,
+    select {
+        width: 100% !important;
+    }
+
+    header nav .btn {
+        margin-bottom: 1em;
+    }
+
+    header nav {
+        margin: .5em 0 !important;
+    }
+
+}

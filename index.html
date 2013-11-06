@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+    <title>Boligfilter</title>
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <script src="./js/jquery.js"></script>
+    <script src="./js/knockout-2.2.1.js"></script>
+    <script src="./js/main.js"></script>
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyA1QLJYFbkDB2lZNMAPEkP5xV0bLNGLGeU&sensor=false">
+    </script>
+</head>
+<body>
+    <div class="">
+        <div class="container-fluid">
+            <header class="row-fluid">
+                <h1 class="span4">Boligfilter</h1>
+                <nav class="span8 text-right">
+                    <button data-bind="click: loadData" type="button" class="btn" id="data1">json 1</button>
+                    <button data-bind="click: loadData" type="button" class="btn" id="data2">json 2</button>
+                    <button data-bind="click: loadData" type="button" class="btn" id="data3">json 3</button>
+                </nav>
+                <!-- <div class="clear"></div> -->
+            </header>
+            <div class="row-fluid">
+                <div class="span3 well">
+                    <h4>Filter</h4>
+                    Address: <br>
+                    <select id="markersData" data-bind="options: markersData,
+                                        optionsText: 'markerAddress',
+                                        value: selectedMarker,
+                                        optionsCaption: 'Choose address...'"></select>
+                    Built Year: <br>
+                    <select id="markersDataYear" data-bind="options: markersData,
+                                        optionsText: 'builtYear',
+                                        value: selectedMarker,
+                                        optionsCaption: 'Choose year...'"></select>
+                    Prise: <br>
+                    <select id="markersDataPrice" data-bind="options: markersData,
+                                        optionsText: 'price',
+                                        value: selectedMarker,
+                                        optionsCaption: 'Choose price...'"></select>
+                    <div data-bind="visible: selectedMarker">
+                        <div class="muted">
+                            You have chosen a marker: <br>
+                            <small>
+                                Built Year - <span data-bind="text: showMarkerInfo().builtYear"></span>, <br>
+                                Price - <span data-bind="text: showMarkerInfo().price"></span>, <br>
+                                Property Size - <span data-bind="text: showMarkerInfo().propertySizeAdvertized"></span>, <br>
+                                Number Of Rooms - <span data-bind="text: showMarkerInfo().totalNumberOfRooms"></span>, <br>
+                                ZipCode - <span data-bind="text: showMarkerInfo().zipCode"></span>
+                            </small>
+                        </div>
+                    </div>
+                </div>
+                <div class="span9">
+                    <div id="map_canvas"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
